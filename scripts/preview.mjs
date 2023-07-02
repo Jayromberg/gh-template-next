@@ -15,7 +15,8 @@ console.log(`You can see the deploy preview on: ${DEPLOY_URL}`);
 // ===================================
 
 console.log('[GITHUB_COMMENT]: START');
-const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env;
+const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER, GITHUB_OWNER } =
+  process.env;
 
 const GH_COMMENT = `
 - Deploy URL: [${DEPLOY_URL}](${DEPLOY_URL})
@@ -27,6 +28,7 @@ const octokit = new Octokit({
 
 console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
 console.log('GITHUB_PR_NUMBER', GITHUB_PR_NUMBER);
+console.log('Autor:', GITHUB_OWNER);
 
 try {
   await octokit.request(
