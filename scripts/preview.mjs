@@ -1,6 +1,5 @@
 import { execSync } from 'child_process';
 import { Octokit } from 'octokit';
-import { deprecate } from 'util';
 
 console.log('[DEPLOY_PREVIEW]: START');
 const command = 'npm run deploy:staging';
@@ -26,15 +25,15 @@ const octokit = new Octokit({
   auth: GITHUB_TOKEN,
 });
 
+console.log('GITHUB_OWNER:', GITHUB_OWNER);
 console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
 console.log('GITHUB_PR_NUMBER', GITHUB_PR_NUMBER);
-console.log('Autor:', GITHUB_OWNER);
 
 try {
   await octokit.request(
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
     {
-      owner: 'jayromberg',
+      owner: GITHUB_OWNER,
       repo: GITHUB_REPOSITORY,
       issue_number: GITHUB_PR_NUMBER,
       body: GH_COMMENT,
