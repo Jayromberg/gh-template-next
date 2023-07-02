@@ -33,7 +33,7 @@ try {
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
     {
       owner: 'jayromberg',
-      repo: 'e-commerce-web',
+      repo: GITHUB_REPOSITORY,
       issue_number: GITHUB_PR_NUMBER,
       body: GH_COMMENT,
       headers: {
