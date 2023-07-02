@@ -14,8 +14,7 @@ console.log(`You can see the deploy preview on: ${DEPLOY_URL}`);
 // ===================================
 
 console.log('[GITHUB_COMMENT]: START');
-const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER, GITHUB_OWNER } =
-  process.env;
+const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env;
 
 const GH_COMMENT = `
 - Deploy URL: [${DEPLOY_URL}](${DEPLOY_URL})
@@ -25,16 +24,17 @@ const octokit = new Octokit({
   auth: GITHUB_TOKEN,
 });
 
-console.log('GITHUB_OWNER:', GITHUB_OWNER);
 console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
 console.log('GITHUB_PR_NUMBER', GITHUB_PR_NUMBER);
+
+const [owner, repo] = GITHUB_REPOSITORY.split('/');
 
 try {
   await octokit.request(
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
     {
-      owner: GITHUB_OWNER,
-      repo: GITHUB_REPOSITORY,
+      owner,
+      repo,
       issue_number: GITHUB_PR_NUMBER,
       body: GH_COMMENT,
       headers: {
