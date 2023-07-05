@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 interface BaseComponentProps {
   children?: React.ReactNode;
-  tag: 'main' | 'header' | 'article' | 'section' | 'form' | 'ul' | string;
+  tag: "main" | "header" | "article" | "section" | "form" | "ul" | string;
   className?: string;
   src?: string;
   alt?: string;
@@ -33,8 +33,8 @@ const BaseComponent = React.forwardRef<unknown, BaseComponentProps>(
 );
 
 BaseComponent.defaultProps = {
-  tag: 'div',
-  className: '',
+  tag: "div",
+  className: "",
 };
 
 export default BaseComponent;

@@ -20,7 +20,7 @@ Execute o seguinte comando para gerar o diretório ".vercel" e realizar o primei
 npm run vercel
 ```
 
-No repositório GitHub, em  "Settings">"Secrets and variables">"Actions" as seguintes "secrets" deveram ser criadas:
+No repositório GitHub, em "Settings">"Secrets and variables">"Actions" as seguintes "secrets" deveram ser criadas:
 
 ATENÇÃO: Não forneça o token e os ID para outras pessoas!
 

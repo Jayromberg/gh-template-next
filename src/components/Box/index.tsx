@@ -1,4 +1,4 @@
-import BaseComponent from '../BaseComponents';
+import BaseComponent from "../BaseComponents";
 
 interface BoxProps {
   children?: React.ReactNode;
