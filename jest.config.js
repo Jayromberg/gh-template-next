@@ -1,18 +1,18 @@
-const nextJest = require('next/jest');
+const nextJest = require("next/jest");
 
 const createJestConfig = nextJest({
-  dir: './',
+  dir: "./",
 });
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testEnvironment: 'jest-environment-jsdom',
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  testEnvironment: "jest-environment-jsdom",
+  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/components/**/*.ts(x)?',
-    'src/screens/**/*.ts(x)?',
-    'src/theme/**/*.ts(x)?',
+    "src/components/**/*.ts(x)?",
+    "src/screens/**/*.ts(x)?",
+    "src/theme/**/*.ts(x)?",
   ],
   coverageThreshold: {
     global: {
